@@ -1,7 +1,16 @@
 require 'numbertotext/version' unless defined?(NumberToText::VERSION)
 
 module NumberToText
-	def self.convert(number)
-		return 'zero'
-	end
+  
+  private
+  def self.load_dictionary
+    dictionary = ['zero','one','two','three','four','five','six','seven','eight','nine']
+    dictionary
+  end
+
+  def self.convert(number)
+    dictionary = load_dictionary
+    dictionary[number]
+  end
+
 end
