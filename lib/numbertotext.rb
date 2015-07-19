@@ -1,30 +1,31 @@
 require 'numbertotext/version' unless defined?(NumberToText::VERSION)
 
 module NumberToText
-  
+
+@dictionary1 =['zero','one','two','three','four','five','six','seven','eight','nine','ten',
+                  'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
+
+@dictionary2 = ['zero','ten','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety']
+
   private
-  def self.load_dictionary1
-    dictionary = ['zero','one','two','three','four','five','six','seven','eight','nine','ten',
-    	'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
-    dictionary
+  def self.convert1(number)
+    @dictionary1[number]
   end
 
   private
-  def self.load_dictionary2
-    dictionary = ['zero','ten','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety']
+  def self.convert2(number)
+    tens = number / 10
+    remainder = number - tens * 10
+    return @dictionary2[tens] + (remainder > 0 ? '-' + convert1(remainder) : '')
   end
-
-
 
   def self.convert(number)
-    dictionary1 = load_dictionary1
     if number < 20
-      dictionary1[number]
+      convert1(number)
     elsif number < 100 && number > 19
-      dictionary2 = load_dictionary2
-      tens = number / 10
-      remainder = number - tens * 10
-      return remainder > 0 ? dictionary2[tens] + '-' + dictionary1[remainder] : dictionary2[tens]
+      convert2(number)
+    else
+        
     end
   end
 
