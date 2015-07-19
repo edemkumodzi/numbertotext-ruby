@@ -57,4 +57,34 @@ describe NumberToText do
     expected = 'one hundred'
     expect(actual).to eq(expected)
   end
+
+  it 'should convert 101 to one hundred and one' do
+    actual = NumberToText.convert(101)
+    expected = 'one hundred and one'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 121 to one hundred and twenty-one' do
+    actual = NumberToText.convert(121)
+    expected = 'one hundred and twenty-one'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1000 to one thousand' do
+    actual = NumberToText.convert(1000)
+    expected = 'one thousand'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1021 to one thousand and twenty-one' do
+    actual = NumberToText.convert(1021)
+    expected = 'one thousand and twenty-one'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1135 to one thousand, one hundred and thirty-five' do
+    actual = NumberToText.convert(1135)
+    expected = 'one thousand, one hundred and thirty-five'
+    expect(actual).to eq(expected)
+  end
 end
