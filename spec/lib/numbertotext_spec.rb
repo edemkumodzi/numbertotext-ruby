@@ -16,112 +16,130 @@ describe NumberToText do
   	expect(actual).to eq(expected)
   end
 
-  it 'should convert 20 to twenty' do
+  it 'should convert 20' do
   	actual = NumberToText.convert(20)
   	expected = 'twenty'
   	expect(actual).to eq(expected)
   end
 
-  it 'should convert 21 to twenty-one' do
+  it 'should convert 21' do
     actual = NumberToText.convert(21)
     expected = 'twenty-one'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 30 to thirty' do
+  it 'should convert 30' do
     actual = NumberToText.convert(30)
     expected = 'thirty'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 37 to thirty-seven' do
+  it 'should convert 37' do
     actual = NumberToText.convert(37)
     expected = 'thirty-seven'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 40 to fourty' do
+  it 'should convert 40' do
     actual = NumberToText.convert(40)
     expected = 'fourty'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 49 to fourty-nine' do
+  it 'should convert 49' do
     actual = NumberToText.convert(49)
     expected = 'fourty-nine'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 100 to one hundred' do
+  it 'should convert 100' do
     actual = NumberToText.convert(100)
     expected = 'one hundred'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 101 to one hundred and one' do
+  it 'should convert 101' do
     actual = NumberToText.convert(101)
     expected = 'one hundred and one'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 121 to one hundred and twenty-one' do
+  it 'should convert 121' do
     actual = NumberToText.convert(121)
     expected = 'one hundred and twenty-one'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 999 to nine hundred and ninety-nine' do
+  it 'should convert 999' do
     actual = NumberToText.convert(999)
     expected = 'nine hundred and ninety-nine'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 1000 to one thousand' do
+  it 'should convert 1000' do
     actual = NumberToText.convert(1000)
     expected = 'one thousand'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 1021 to one thousand and twenty-one' do
+  it 'should convert 1021' do
     actual = NumberToText.convert(1021)
     expected = 'one thousand and twenty-one'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 1135 to one thousand, one hundred and thirty-five' do
+  it 'should convert 1135' do
     actual = NumberToText.convert(1135)
     expected = 'one thousand, one hundred and thirty-five'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 9999 to nine thousand, nine hundred and ninety-nine' do
+  it 'should convert 9999' do
     actual = NumberToText.convert(9999)
     expected = 'nine thousand, nine hundred and ninety-nine'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 999999 to nine hundred and ninety-nine thousand, nine hundred and ninety-nine' do
+  it 'should convert 999999' do
     actual = NumberToText.convert(999999)
     expected = 'nine hundred and ninety-nine thousand, nine hundred and ninety-nine'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 1000000 to one million' do
+  it 'should convert 1000000' do
     actual = NumberToText.convert(1000000)
     expected = 'one million'
     expect(actual).to eq(expected)
   end
 
 
-  it 'should convert 1000001 to one million and one' do
+  it 'should convert 1000001' do
     actual = NumberToText.convert(1000001)
     expected = 'one million and one'
     expect(actual).to eq(expected)
   end
 
-  it 'should convert 999999999 to nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine' do
+  it 'should convert 999999999' do
     actual = NumberToText.convert(999999999)
     expected = 'nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1000000000' do
+    actual = NumberToText.convert(1000000000)
+    expected = 'one billion'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1000000001' do
+    actual = NumberToText.convert(1000000001)
+    expected = 'one billion and one'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert 1000000001' do
+    actual = NumberToText.convert(1000000001)
+    expected = 'one billion and one'
     expect(actual).to eq(expected)
   end
 
