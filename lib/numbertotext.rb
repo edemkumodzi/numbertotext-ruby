@@ -17,7 +17,7 @@ module NumberToText
     return convert(whole) + ' ' + text + ', ' + convert(remainder) if remainder > 99
   end
 
-  #special case for 20 to 99: requires lookup on dictionary two and numbers are formatted with a hyphen in the middle
+  #special case for 20 to 99: requires lookup on dictionary two and numbers are formatted with a hyphen in the middle. also uses recursion to convert remainder
   private
   def self.convert_20_to_99(number)
     tens = number / 10
@@ -37,11 +37,11 @@ module NumberToText
     elsif number < 1000000 && number > 999
       return generic_convert(number,1000,'thousand')
     elsif number < 1000000000 && number > 999999
-       return generic_convert(number,1000000,'million')
+      return generic_convert(number,1000000,'million')
     elsif number < 1000000000000 && number > 999999999
       return generic_convert(number,1000000000,'billion')
     else
-      return 'number too large. please try with a number lower than 999999999999'
+      return 'number too large. please try with a number lower than or equal to 999999999999'
     end
   end
 

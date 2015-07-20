@@ -3,23 +3,23 @@ require 'spec_helper'
 describe NumberToText do
 
   it 'should convert 0 to 20 to equivalent text' do
-  	ntt = NumberToText
-  	actual = [ntt.convert(0),ntt.convert(1),ntt.convert(2),ntt.convert(3),ntt.convert(4),ntt.convert(5),
-  				ntt.convert(6),ntt.convert(7),ntt.convert(8),ntt.convert(9),ntt.convert(10),
-  					ntt.convert(11),ntt.convert(12),ntt.convert(13),ntt.convert(14),ntt.convert(15),
-  						ntt.convert(16),ntt.convert(17),ntt.convert(18),ntt.convert(19)]
-  	
-  	expected = ['zero','one','two','three','four','five',
-  					'six','seven','eight','nine','ten',
-  						'eleven','twelve','thirteen','fourteen','fifteen',
-  							'sixteen','seventeen','eighteen','nineteen']
-  	expect(actual).to eq(expected)
+    ntt = NumberToText
+    actual = [ntt.convert(0),ntt.convert(1),ntt.convert(2),ntt.convert(3),ntt.convert(4),ntt.convert(5),
+              ntt.convert(6),ntt.convert(7),ntt.convert(8),ntt.convert(9),ntt.convert(10),
+              ntt.convert(11),ntt.convert(12),ntt.convert(13),ntt.convert(14),ntt.convert(15),
+              ntt.convert(16),ntt.convert(17),ntt.convert(18),ntt.convert(19)]
+
+    expected = ['zero','one','two','three','four','five',
+                'six','seven','eight','nine','ten',
+                'eleven','twelve','thirteen','fourteen','fifteen',
+                'sixteen','seventeen','eighteen','nineteen']
+    expect(actual).to eq(expected)
   end
 
   it 'should convert 20' do
-  	actual = NumberToText.convert(20)
-  	expected = 'twenty'
-  	expect(actual).to eq(expected)
+    actual = NumberToText.convert(20)
+    expected = 'twenty'
+    expect(actual).to eq(expected)
   end
 
   it 'should convert 21' do
@@ -140,6 +140,12 @@ describe NumberToText do
   it 'should convert 1000000001' do
     actual = NumberToText.convert(1000000001)
     expected = 'one billion and one'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should not convert above 999999999999' do
+    actual = NumberToText.convert(9999999999999)
+    expected = 'number too large. please try with a number lower than or equal to 999999999999'
     expect(actual).to eq(expected)
   end
 
