@@ -7,11 +7,13 @@ module NumberToText
 
   @dictionary2 = ['zero','ten','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety']
 
+  #simple conversion from zero to nineteen
   private
   def self.convert1(number)
     @dictionary1[number]
   end
 
+  #convert from twenty to 99 by finding multiple of tens and then recursively convert the remainder
   private
   def self.convert2(number)
     tens = number / 10
@@ -20,6 +22,7 @@ module NumberToText
     return @dictionary2[tens] + '-' + convert(remainder) if remainder > 0
   end
 
+  #convert from 100 to 999 by finding multiples of hundreds and recursively convert the remainder
   private
   def self.convert3(number)
     hundreds = number / 100
@@ -28,6 +31,7 @@ module NumberToText
     return @dictionary1[hundreds] + ' hundred and ' + convert(remainder) if remainder > 0
   end
 
+  #convert from 1000 to 999999 by finding multiples of thousands and recursively convert the remainder
   private
   def self.convert4(number)
     thousands = number / 1000
@@ -36,6 +40,18 @@ module NumberToText
     return convert(thousands) + ' thousand and ' + convert(remainder) if (remainder < 100 && remainder > 0)
     return convert(thousands) + ' thousand, ' + convert(remainder) if remainder > 99
   end
+
+  #convert from 1000000 to 999999999 by finding multiples of millions and recursively convert the remainder
+  private
+  def self.convert5(number)
+    millions = number / 1000000
+    remainder = number - millions * 1000000
+    return convert(millions) + ' million' if remainder == 0
+    return convert(millions) + ' million and ' + convert(remainder) if (remainder < 100 && remainder > 0)
+    return convert(millions) + ' million, ' + convert(remainder) if remainder > 99
+  end
+
+
 
   def self.convert(number)
     if number < 20
@@ -46,6 +62,8 @@ module NumberToText
       convert3(number)
     elsif number < 1000000 && number > 999
       convert4(number)
+    elsif number < 1000000000 && number > 999999
+       convert5(number) 
     end
   end
 
