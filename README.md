@@ -14,6 +14,16 @@ Or install it yourself as:
 
     $ gem install numbertotext-ruby
 
+## Usage
+
+Require the numbertotext library
+
+	require 'numbertotext'
+
+Convert a number you want (e.g. 1000)
+
+	NumberToText.convert(1000)
+
 
 ## Contributing
 
