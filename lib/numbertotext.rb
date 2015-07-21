@@ -28,7 +28,9 @@ module NumberToText
 
 
   def self.convert(number)
-    if number < 20
+    if number < 0
+      return 'minus ' + convert(-1*number)
+    elsif number < 20 && number > -1
       return @dictionary1[number]
     elsif number < 100 && number > 19
       convert_20_to_99(number)
@@ -44,5 +46,10 @@ module NumberToText
       return 'number too large. please try with a number lower than or equal to 999999999999'
     end
   end
+end
 
+class Fixnum
+    def to_text
+      NumberToText.convert(self)
+    end
 end
