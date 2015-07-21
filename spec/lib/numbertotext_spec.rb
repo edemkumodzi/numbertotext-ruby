@@ -22,6 +22,12 @@ describe NumberToText do
     expect(actual).to eq(expected)
   end
 
+    it 'should convert 20' do
+    actual = 20.to_text
+    expected = 'twenty'
+    expect(actual).to eq(expected)
+  end
+
   it 'should convert 21' do
     actual = NumberToText.convert(21)
     expected = 'twenty-one'
@@ -146,6 +152,12 @@ describe NumberToText do
   it 'should not convert above 999999999999' do
     actual = NumberToText.convert(9999999999999)
     expected = 'number too large. please try with a number lower than or equal to 999999999999'
+    expect(actual).to eq(expected)
+  end
+
+  it 'should convert -1000' do
+    actual = NumberToText.convert(-1000)
+    expected = 'minus one thousand'
     expect(actual).to eq(expected)
   end
 

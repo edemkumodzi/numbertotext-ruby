@@ -24,6 +24,10 @@ Convert a number you want (e.g. 1000)
 
 	NumberToText.convert(1000)
 
+Alternatively, you could also convert a number by simply calling the "to_text" method on it
+
+	1000.to_text = "one thousand"
+
 
 ## Contributing
 
